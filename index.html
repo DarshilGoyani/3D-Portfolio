@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darshil | 3D Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css"> -->
+      <!-- online -->
+    <link
+    rel="stylesheet"
+    href="https://site-assets.fontawesome.com/releases/v7.1.0/css/all.css"
+    />
+    <link
+    rel="stylesheet"
+    href="https://site-assets.fontawesome.com/releases/v7.1.0/css/sharp-solid.css"
+    />
+    <link
+    rel="stylesheet"
+    href="https://site-assets.fontawesome.com/releases/v7.1.0/css/sharp-regular.css"
+    />
+    <link
+    rel="stylesheet"
+    href="https://site-assets.fontawesome.com/releases/v7.1.0/css/sharp-light.css"
+    />
+    <link
+    rel="stylesheet"
+    href="https://site-assets.fontawesome.com/releases/v7.1.0/css/duotone.css"
+    />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="bg"></canvas>
+
+    <div id="loader">
+        <div class="loader-content">
+            <h1 class="typewriter">DARSHIL<span>.</span></h1>
+        </div>
+    </div>
+
+    <main>
+        
+        <!-- header -->
+        <!-- <section class="header"> -->
+            <nav>
+                <div class="logo">DARSHIL<span>.</span></div>
+                
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+
+                <div class="menu-links">
+                    <a href="#home" class="nav-link">HOME</a>
+                    <a href="#about" class="nav-link">ABOUT</a>
+                    <a href="#projects" class="nav-link">WORK</a>
+                    <a href="#contact" class="nav-link">CONTACT</a>
+                </div>
+            </nav>
+        <!-- </section>                                                           -->
+
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h3>Full Stack Developer</h3>
+                <h1>DIGITAL<br>ARCHITECT</h1>
+                <p>I build immersive web experiences with code & creativity.</p>
+                <a href="#projects" class="btn-glow">Explore Work</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="glass-profile-card">
+                <div class="profile-visual">
+                    <div class="img-wrapper">
+                        <img src="images/about-me-img.jpg" alt="Darshil Goyani">
+                        <div class="scan-line"></div>
+                        <div class="corner-borders"></div>
+                    </div>
+                </div>
+
+                <div class="profile-data">
+                    <div class="tagline">IDENTIFICATION // 001</div>
+                    <h2>Darshil Goyani</h2>
+                    <h4 class="role">Full Stack Developer</h4>
+                    
+                    <p class="bio">
+                        I create seamless, high-quality solutions that deliver great user experiences. Passionate about building dynamic web applications with expertise in both front-end and back-end technologies.
+                    </p>
+
+                    <div class="data-grid">
+                        <div class="data-item">
+                            <i class="fa-regular fa-calendar-days"></i>
+                            <div>
+                                <span class="label">Date of Birth</span>
+                                <span class="value">Jan 05, 2006</span>
+                            </div>
+                        </div>
+                        <div class="data-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <span class="label">Location</span>
+                                <span class="value">Surat, Gujarat, India</span>
+                            </div>
+                        </div>
+                        <div class="data-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <span class="value">darshilgoyani05@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="data-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <span class="label">Phone</span>
+                                <span class="value">+91-9428721913</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hobby-zone">
+                        <span class="hobby-label">INTERESTS_</span>
+                        <div class="chips">
+                            <div class="chip"><i class="fa-etch fa-solid fa-music"></i> Music</div>
+                            <div class="chip"><i class="fa-solid fa-plane"></i> Travel</div>
+                            <div class="chip"><i class="fa-solid fa-film"></i> Movie</div>
+                            <div class="chip"><i class="fa-solid fa-court-sport"></i> Sports</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="glass-panel">
+                <div class="about-text">
+                    <h2>Behind the Code</h2>
+                    <p>I am <strong>Darshil Goyani</strong>. I don't just write code; I solve problems in 3D space. Based in Surat, I specialize in blending high-performance logic with stunning visuals.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <span>25+</span>
+                            <label>Projects</label>
+                        </div>
+                        <div class="stat">
+                            <span>10+</span>
+                            <label>Tech Stack</label>
+                        </div>
+                        <div class="stat">
+                            <span>100%</span>
+                            <label>Dedication</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-horizontal">
+            <div class="section-header">
+                <h2>SELECTED WORKS</h2>
+                <p>Scroll down to explore</p>
+            </div>
+            
+            <div class="projects-wrapper">
+             
+                <!-- Banker -->
+                <div class="project-card">
+                    <div class="card-inner">
+                        
+                        <div class="img-window">
+                            <img src="images/css-1.jpeg" alt="Project 1">
+                        </div>
+
+                        <div class="card-content">
+                            <h3>Banker</h3>
+                            <p>Banking Website</p>
+                            <a href="https://darshilgoyani.github.io/Banker-Website/" target="_blank" class="btn-small">View Live</a>
+                        </div>
+                    </div>
+                </div>
+             
+                <!-- Bizzpage -->
+                <div class="project-card">
+                    <div class="card-inner">
+                        
+                        <div class="img-window">
+                            <img src="images/b-1.jpeg" alt="Project 2">
+                        </div>
+
+                        <div class="card-content">
+                            <h3>Bizzpage</h3>
+                            <p>Banking Website</p>
+                            <a href="https://darshilgoyani.github.io/Bizzpage-Website/" target="_blank" class="btn-small">View Live</a>
+                        </div>
+                    </div>
+                </div>
+             
+                <!-- Adventore -->
+                <div class="project-card">
+                    <div class="card-inner">
+                        
+                        <div class="img-window">
+                            <img src="images/b-2.jpeg" alt="Project 3">
+                        </div>
+
+                        <div class="card-content">
+                            <h3>Adventore</h3>
+                            <p>Camping Website</p>
+                            <a href="https://darshilgoyani.github.io/Adventore-website/" target="_blank" class="btn-small">View Live</a>
+                        </div>
+                    </div>
+                </div>
+             
+                <!-- Camperon -->
+                <div class="project-card">
+                    <div class="card-inner">
+                        
+                        <div class="img-window">
+                            <img src="images/b-3.jpeg" alt="Project 4">
+                        </div>
+
+                        <div class="card-content">
+                            <h3>Camperon</h3>
+                            <p>Camping Website</p>
+                            <a href="https://darshilgoyani.github.io/Camperon-website/" target="_blank" class="btn-small">View Live</a>
+                        </div>
+                    </div>
+                </div>
+             
+                <!-- Hayka-Adventre-Website -->
+                <div class="project-card">
+                    <div class="card-inner">
+                        
+                        <div class="img-window">
+                            <img src="images/b-4.jpeg" alt="Project 5">
+                        </div>
+
+                        <div class="card-content">
+                            <h3>Hayka</h3>
+                            <p>Camping Website</p>
+                            <a href="https://darshilgoyani.github.io/Hayka-Adventre-Website/" target="_blank" class="btn-small">View Live</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Furni -->
+                <div class="project-card">
+                    <div class="card-inner">
+                        
+                        <div class="img-window">
+                            <img src="images/b-5.jpeg" alt="Project 6">
+                        </div>
+
+                        <div class="card-content">
+                            <h3>Furni</h3>
+                            <p>Modern Interior</p>
+                            <a href="https://darshilgoyani.github.io/Furniture-Website/" target="_blank" class="btn-small">View Live</a>
+                        </div>
+                    </div>
+                </div>
+             
+                <!-- Grossery-Store-website -->
+                <div class="project-card">
+                    <div class="card-inner">
+                        
+                        <div class="img-window">
+                            <img src="images/b-6.jpeg" alt="Project 7">
+                        </div>
+
+                        <div class="card-content">
+                            <h3>Fresh Cart</h3>
+                            <p>Grossary Store</p>
+                            <a href="https://darshilgoyani.github.io/Grossery-Store-website/" target="_blank" class="btn-small">View Live</a>
+                        </div>
+                    </div>
+                </div>
+             
+                <!-- Pizza -->
+                <div class="project-card">
+                    <div class="card-inner">
+                        
+                        <div class="img-window">
+                            <img src="images/b-7.jpeg" alt="Project 8">
+                        </div>
+
+                        <div class="card-content">
+                            <h3>Pizza</h3>
+                            <p>Pizza Store</p>
+                            <a href="https://darshilgoyani.github.io/Pizza-Website/" target="_blank" class="btn-small">View Live</a>
+                        </div>
+                    </div>
+                </div>
+             
+                <!-- Corona -->
+                <div class="project-card">
+                    <div class="card-inner">
+                        
+                        <div class="img-window">
+                            <img src="images/b-8.jpeg" alt="Project 9">
+                        </div>
+
+                        <div class="card-content">
+                            <h3>Corona</h3>
+                            <p>Admin Panel</p>
+                            <a href="https://darshilgoyani.github.io/Corona-Website/" target="_blank" class="btn-small">View Live</a>
+                        </div>
+                    </div>
+                </div>
+             
+                <!-- Fresh Kar admin pane; -->
+                <div class="project-card">
+                    <div class="card-inner">
+                        
+                        <div class="img-window">
+                            <img src="images/b-9.jpeg" alt="Project 10">
+                        </div>
+
+                        <div class="card-content">
+                            <h3>Fresh Kart</h3>
+                            <p>Admin Panel</p>
+                            <a href="https://darshilgoyani.github.io/Grossery-Store-website/admin.html/" target="_blank" class="btn-small">View Live</a>
+                        </div>
+                    </div>
+                </div>
+             
+                <!-- NifTy -->
+                <div class="project-card">
+                    <div class="card-inner">
+                        
+                        <div class="img-window">
+                            <img src="images/b-10.jpeg" alt="Project 11">
+                        </div>
+
+                        <div class="card-content">
+                            <h3>NifTy</h3>
+                            <p>Portfolio</p>
+                            <a href="https://darshilgoyani.github.io/NifTy-Website/" target="_blank" class="btn-small">View Live</a>
+                        </div>
+                    </div>
+                </div>
+             
+                <!-- Agrile -->
+                <div class="project-card">
+                    <div class="card-inner">
+                        
+                        <div class="img-window">
+                            <img src="images/b-11.jpeg" alt="Project 12">
+                        </div>
+
+                        <div class="card-content">
+                            <h3>Agrile</h3>
+                            <p>Agricultur</p>
+                            <a href="https://darshilgoyani.github.io/Agrile-Website/" target="_blank" class="btn-small">View Live</a>
+                        </div>
+                    </div>
+                </div>
+             
+                <!-- Adven -->
+                <div class="project-card">
+                    <div class="card-inner">
+                        
+                        <div class="img-window">
+                            <img src="images/b-12.jpeg" alt="Project 13">
+                        </div>
+
+                        <div class="card-content">
+                            <h3>Adven</h3>
+                            <p>Adventure</p>
+                            <a href="https://darshilgoyani.github.io/Adven-Website/" target="_blank" class="btn-small">View Live</a>
+                        </div>
+                    </div>
+                </div>
+             
+                <!-- Renax -->
+                <div class="project-card">
+                    <div class="card-inner">
+                        
+                        <div class="img-window">
+                            <img src="images/b-13.jpeg" alt="Project 14">
+                        </div>
+
+                        <div class="card-content">
+                            <h3>Renax</h3>
+                            <p>Car Rental</p>
+                            <a href="https://darshilgoyani.github.io/Renax-Website/" target="_blank" class="btn-small">View Live</a>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section">
+            <div class="skills-section">
+                <div class="skills-header">
+                    <h2>TECH ARSENAL</h2>
+                    <p>FLOATING IN 3D SPACE</p>
+                </div>
+
+                <div class="skills-container">
+                    
+                    <div class="skill-panel left-panel">
+                        <h3>Frontend</h3>
+                        <ul>
+                            <li>React.js</li>
+                            <li>HTML5 / CSS3</li>
+                            <li>JavaScript (ES6+)</li>
+                            <li>Bootstrap</li>
+                            <li>GSAP Animations</li>
+                        </ul>
+                    </div>
+
+                    <div class="center-stage"></div>
+
+                    <div class="skill-panel right-panel">
+                        <h3>Backend & Core</h3>
+                        <ul>
+                            <li>Node.js</li>
+                            <li>Express.js</li>
+                            <li>MongoDB</li>
+                            <li>Java / Python</li>
+                            <li>Git / GitHub</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="contact-box">
+                <h2 style="margin-bottom: 20px;">Start A Project</h2>
+                <form action="https://formsubmit.co/darshilgoyani05@gmail.com" method="POST">
+                    <div class="input-group">
+                        <input type="text" name="name" required>
+                        <label>Name</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" name="email" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" name="subject" required>
+                        <label>Subject</label>
+                    </div>
+                    <div class="input-group">
+                        <textarea name="message" required></textarea>
+                        <label>Message</label>
+                    </div>
+                    <button type="submit" class="btn-glow">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                
+                <div class="footer-brand">
+                    <div class="logo"><h2>DARSHIL<span>.</span></h2></div>
+                    <p>Building digital experiences in 3D space.</p>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" target="_blank" class="social-btn"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" target="_blank" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="mailto:darshilgoyani05@gmail.com" class="social-btn"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+
+                <div class="footer-bottom">
+                    <span>© 2026 Darshil Goyani. All Rights Reserved.</span>
+                    <div class="status-indicator">
+                        <div class="dot"></div> SYSTEM ONLINE
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- pointor -->
+         <div class="cursor-dot" data-cursor-dot></div>
+        <div class="cursor-outline" data-cursor-outline></div>
+
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>
