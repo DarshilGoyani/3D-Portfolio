@@ -43,18 +43,43 @@ scene.add(particlesMesh);
 
 // --- 3. THE "CYBER RING" SKILL SYSTEM ---
 
-const textureLoader = new THREE.TextureLoader();
+// [PERFORMANCE FIX]: Loading Manager Banaya
+const manager = new THREE.LoadingManager();
+
+// Jab sab load ho jaye, tab Loader hatao
+manager.onLoad = function () {
+    console.log('Loading complete!');
+    // Thoda sa delay taaki animation smooth lage
+    setTimeout(() => {
+        document.body.classList.add("loaded"); 
+    }, 1000);
+};
+
+// Manager ko TextureLoader me pass karo
+const textureLoader = new THREE.TextureLoader(manager);
+
+// [IMPORTANT]: Images ke naam .webp kar dena convert karne ke baad
 const skillTextures = [
-    'images/html.png', 'images/css-3.png', 'images/js.png', 'images/react js.png',
-    'images/node-js.webp', 'images/bootstrap.png', 'images/github-2.png', 'images/mysql.png',
-    'images/express js.png', 'images/git.png', 'images/firebase.png', 'images/mongo db.png', 'images/c-.png'
+    'images/html.webp',       
+    'images/css-3.webp',
+    'images/js.webp',
+    'images/react js.webp',
+    'images/node-js.webp',
+    'images/bootstrap.webp',
+    'images/github-2.webp',
+    'images/mysql.webp',
+    'images/express js.webp',
+    'images/git.webp',
+    'images/firebase.webp',
+    'images/mongo db.webp',
+    'images/c-.webp'
 ];
 
 const ringGroup = new THREE.Group();
 scene.add(ringGroup);
 const allTechCubes = [];
 
-// [RESET SIZE]: Wapas 3.5 kar diya taaki baki sections me chote dikhe
+// [RESET SIZE]: Logic wahi purana
 const isMobile = window.innerWidth < 768;
 const cubeBaseSize = isMobile ? 2.5 : 3.5; 
 
@@ -66,7 +91,7 @@ skillTextures.forEach((texturePath, i) => {
     });
     const cube = new THREE.Mesh(geometry, material);
 
-    const cageSize = cubeBaseSize + 0.5; // Gap wapas normal
+    const cageSize = cubeBaseSize + 0.5; 
     const cageGeo = new THREE.BoxGeometry(cageSize, cageSize, cageSize);
     const cageMat = new THREE.MeshBasicMaterial({
         color: 0x9F361F, wireframe: true, transparent: true, opacity: 0.3
@@ -77,7 +102,6 @@ skillTextures.forEach((texturePath, i) => {
     techBlock.add(cube);
     techBlock.add(cage);
 
-    // Initial Random Position (Hero Section me yehi dikhega)
     techBlock.position.set(
         (Math.random() - 0.5) * 100,
         (Math.random() - 0.5) * 100,
@@ -318,14 +342,6 @@ interactiveElements.forEach(el => {
     });
 });
 
-// --- LOADER LOGIC ---
-// --- LOADER LOGIC ---
-window.addEventListener("load", function() {
-    // 3.5 seconds wait karega taaki user pura naam padh sake
-    setTimeout(() => {
-        document.body.classList.add("loaded"); 
-    }, 3500); 
-});
 
 // --- MOBILE MENU LOGIC ---
 const menuToggle = document.querySelector('#mobile-menu');
