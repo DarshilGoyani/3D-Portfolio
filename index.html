@@ -9,23 +9,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#9F361F',
-                        dark: '#050505',
-                        light: '#ffffff',
-                    },
-                    fontFamily: {
-                        syncopate: ['Syncopate', 'sans-serif'],
-                        poppins: ['Poppins', 'sans-serif'],
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#9F361F',
+                    dark: '#050505',
+                    light: '#ffffff',
+                },
+                fontFamily: {
+                    syncopate: ['Syncopate', 'sans-serif'],
+                    poppins: ['Poppins', 'sans-serif'],
+                },
+                // [FIX 2]: Scanner Animation Configured Here
+                keyframes: {
+                    scan: {
+                        '0%': { top: '0%', opacity: '0' },
+                        '10%': { opacity: '1' },
+                        '90%': { opacity: '1' },
+                        '100%': { top: '100%', opacity: '0' },
                     }
+                },
+                animation: {
+                    scan: 'scan 4s linear infinite', // Class: animate-scan
                 }
             }
         }
-    </script>
+    }
+</script>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -37,27 +49,30 @@
     <div id="loader" class="fixed inset-0 bg-dark flex justify-center items-center z-[99999] transition-transform duration-[800ms] ease-[cubic-bezier(0.7,0,0.3,1)]">
         <div class="loader-content">
             <h1 class="font-syncopate text-5xl md:text-7xl font-bold text-white whitespace-nowrap overflow-hidden border-r-4 border-primary pr-1 typing-animation">
-                DARSHIL<span>.</span>
+                DARSHIL<span class="text-[#9F361F]">.</span>
             </h1>
         </div>
     </div>
 
     <main>
         <!-- header -->
-        <nav class="fixed top-0 w-full px-8 py-6 md:px-12 flex justify-between items-center z-50 mix-blend-difference">
-            <div class="font-syncopate font-bold text-2xl">DARSHIL<span class="text-primary">.</span></div>
+        <nav class="fixed top-0 w-full px-8 py-6 md:px-12 flex justify-between items-center z-50">
             
-            <div class="menu-toggle block md:hidden cursor-pointer z-[1001]" id="mobile-menu">
+            <div class="logo font-syncopate font-bold text-2xl z-[1002] mix-blend-difference text-white">
+                DARSHIL<span class="text-[#9F361F]">.</span>
+            </div>
+            
+            <div class="menu-toggle block md:hidden cursor-pointer z-[1002] mix-blend-difference" id="mobile-menu">
                 <span class="bar block w-6 h-[3px] bg-white my-1 transition-all duration-300"></span>
                 <span class="bar block w-6 h-[3px] bg-white my-1 transition-all duration-300"></span>
                 <span class="bar block w-6 h-[3px] bg-white my-1 transition-all duration-300"></span>
             </div>
 
-            <div class="menu-links fixed left-[-100%] top-0 flex flex-col bg-dark/95 w-full h-screen justify-center items-center gap-10 transition-all duration-300 backdrop-blur-md md:static md:w-auto md:h-auto md:bg-transparent md:flex-row md:backdrop-filter-none md:gap-8 z-[1000]">
-                <a href="#home" class="nav-link text-2xl md:text-sm tracking-widest hover:text-primary transition-colors">HOME</a>
-                <a href="#about" class="nav-link text-2xl md:text-sm tracking-widest hover:text-primary transition-colors">ABOUT</a>
-                <a href="#projects" class="nav-link text-2xl md:text-sm tracking-widest hover:text-primary transition-colors">WORK</a>
-                <a href="#contact" class="nav-link text-2xl md:text-sm tracking-widest hover:text-primary transition-colors">CONTACT</a>
+            <div class="menu-links fixed left-[-100%] top-0 flex flex-col bg-black/95 backdrop-blur-md w-full h-screen justify-center items-center gap-10 transition-all duration-300 md:static md:w-auto md:h-auto md:bg-transparent md:flex-row md:gap-8 z-[1000]">
+                <a href="#home" class="nav-link text-2xl md:text-sm tracking-widest text-white hover:text-[#9F361F] transition-colors">HOME</a>
+                <a href="#about" class="nav-link text-2xl md:text-sm tracking-widest text-white hover:text-[#9F361F] transition-colors">ABOUT</a>
+                <a href="#projects" class="nav-link text-2xl md:text-sm tracking-widest text-white hover:text-[#9F361F] transition-colors">WORK</a>
+                <a href="#contact" class="nav-link text-2xl md:text-sm tracking-widest text-white hover:text-[#9F361F] transition-colors">CONTACT</a>
             </div>
         </nav>
 
@@ -77,9 +92,9 @@
 
         <!-- about -->
         <section id="about" class="about-section min-h-screen flex justify-center items-center py-12 px-5 perspective-1000">
-            <div class="glass-profile-card flex flex-col md:flex-row items-center justify-center bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden max-w-[1100px] w-full shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <div class="glass-profile-card group flex flex-col md:flex-row items-center justify-center bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden max-w-[1100px] w-full shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                 
-                <div class="profile-visual flex-1 w-full min-h-[300px] md:h-auto relative overflow-hidden group">
+                <div class="profile-visual flex-1 w-full min-h-[300px] md:h-auto relative overflow-hidden">
                     <div class="img-wrapper w-full h-full relative">
                         <img src="images/about-me-img.jpg" alt="Darshil Goyani" class="w-full h-full object-cover grayscale brightness-75 contrast-125 transition-all duration-500 group-hover:grayscale-0">
                         <div class="scan-line absolute top-0 left-0 w-full h-1 bg-primary shadow-[0_0_15px_#9F361F] animate-scan opacity-70"></div>
@@ -135,9 +150,24 @@
                     <p class="text-gray-300 leading-relaxed">I am <strong>Darshil Goyani</strong>. I don't just write code; I solve problems in 3D space. Based in Surat, I specialize in blending high-performance logic with stunning visuals.</p>
                     
                     <div class="stats-grid flex justify-between mt-10">
-                        <div class="stat text-center"><span class="block text-4xl font-bold text-primary">25+</span><label class="text-xs uppercase opacity-70">Projects</label></div>
-                        <div class="stat text-center"><span class="block text-4xl font-bold text-primary">10+</span><label class="text-xs uppercase opacity-70">Tech Stack</label></div>
-                        <div class="stat text-center"><span class="block text-4xl font-bold text-primary">100%</span><label class="text-xs uppercase opacity-70">Dedication</label></div>
+                        <div class="stat text-center">
+                            <span class="block text-4xl font-bold text-primary flex justify-center">
+                                <span class="counter" data-target="25">0</span>+
+                            </span>
+                            <label class="text-xs uppercase opacity-70">Projects</label>
+                        </div>
+                        <div class="stat text-center">
+                            <span class="block text-4xl font-bold text-primary flex justify-center">
+                                <span class="counter" data-target="10">0</span>+
+                            </span>
+                            <label class="text-xs uppercase opacity-70">Tech Stack</label>
+                        </div>
+                        <div class="stat text-center">
+                            <span class="block text-4xl font-bold text-primary flex justify-center">
+                                <span class="counter" data-target="100">0</span>%
+                            </span>
+                            <label class="text-xs uppercase opacity-70">Dedication</label>
+                        </div>
                     </div>
                 </div>
             </div>

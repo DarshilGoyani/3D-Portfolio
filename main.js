@@ -48,7 +48,6 @@ const manager = new THREE.LoadingManager();
 
 // Jab sab load ho jaye, tab Loader hatao
 manager.onLoad = function () {
-    console.log('Loading complete!');
     // Thoda sa delay taaki animation smooth lage
     setTimeout(() => {
         document.body.classList.add("loaded"); 
@@ -360,5 +359,28 @@ navLinks.forEach(link => {
     link.addEventListener('click', () => {
         menuToggle.classList.remove('is-active');
         menuLinks.classList.remove('active');
+    });
+});
+
+// --- NUMBER COUNTER ANIMATION ---
+gsap.registerPlugin(ScrollTrigger);
+
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+    const target = +counter.getAttribute('data-target'); // Final number
+    
+    gsap.to(counter, {
+        innerText: target,
+        duration: 2,
+        snap: { innerText: 1 }, // Integers only (no decimals)
+        scrollTrigger: {
+            trigger: counter,
+            start: "top 85%", // Jab number screen ke bottom part me aaye
+            toggleActions: "play none none reverse" // Wapas upar jane pe reset ho
+        },
+        onUpdate: function() {
+            counter.innerText = Math.ceil(this.targets()[0].innerText);
+        }
     });
 });
