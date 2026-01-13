@@ -4,40 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Darshil | 3D Portfolio</title>
+    <meta name="title" content="Darshil Goyani | Full Stack Developer & 3D Web Architect">
+    <meta name="description" content="Portfolio of Darshil Goyani, a Full Stack Developer based in Surat, India. Specializing in MERN Stack, Three.js, GSAP, and immersive 3D web experiences.">
+    <meta name="keywords" content="Darshil Goyani, Full Stack Developer, Web Developer Surat, 3D Portfolio, Node.js Developer,Portfolio, Three.js Developer, React Developer, MERN Stack, GSAP Animations, Web Design India">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="author" content="Darshil Goyani">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://3d-portfolio-ochre-omega.vercel.app/">
+    <meta property="og:title" content="Darshil Goyani | Full Stack Developer">
+    <meta property="og:description" content="Explore the 3D world of Darshil Goyani. Building immersive web experiences with code & creativity.">
+    <meta property="og:image" content="https://3d-portfolio-ochre-omega.vercel.app/images/banner.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://3d-portfolio-ochre-omega.vercel.app/">
+    <meta property="twitter:title" content="Darshil Goyani | Full Stack Developer">
+    <meta property="twitter:description" content="Explore the 3D world of Darshil Goyani. Building immersive web experiences with code & creativity.">
+    <meta property="twitter:image" content="https://3d-portfolio-ochre-omega.vercel.app/images/banner.png">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <script src="https://cdn.tailwindcss.com"></script>
-<script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    primary: '#9F361F',
-                    dark: '#050505',
-                    light: '#ffffff',
-                },
-                fontFamily: {
-                    syncopate: ['Syncopate', 'sans-serif'],
-                    poppins: ['Poppins', 'sans-serif'],
-                },
-                // [FIX 2]: Scanner Animation Configured Here
-                keyframes: {
-                    scan: {
-                        '0%': { top: '0%', opacity: '0' },
-                        '10%': { opacity: '1' },
-                        '90%': { opacity: '1' },
-                        '100%': { top: '100%', opacity: '0' },
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#9F361F',
+                        dark: '#050505',
+                        light: '#ffffff',
+                    },
+                    fontFamily: {
+                        syncopate: ['Syncopate', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    // [FIX 2]: Scanner Animation Configured Here
+                    keyframes: {
+                        scan: {
+                            '0%': { top: '0%', opacity: '0' },
+                            '10%': { opacity: '1' },
+                            '90%': { opacity: '1' },
+                            '100%': { top: '100%', opacity: '0' },
+                        }
+                    },
+                    animation: {
+                        scan: 'scan 4s linear infinite', // Class: animate-scan
                     }
-                },
-                animation: {
-                    scan: 'scan 4s linear infinite', // Class: animate-scan
                 }
             }
         }
-    }
-</script>
+    </script>
 
     <link rel="stylesheet" href="style.css">
 </head>
