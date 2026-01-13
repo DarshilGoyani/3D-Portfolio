@@ -1,12 +1,61 @@
 const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
 
+// --- 1. Database Schema & Model ---
+const contactSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    subject: String,
+    message: String,
+    date: { type: Date, default: Date.now }
+});
 
-module.exports = async (req, res) => {
+// Model create karo (Prevent overwrite during hot reload)
+const Contact = mongoose.models.Contact || mongoose.model('Contact', contactSchema);
+
+// --- 2. Database Connection Logic (Ye MISSING tha) ---
+let isConnected = false;
+
+async function connectToDatabase() {
+    if (isConnected) {
+        return;
+    }
+
+    if (!process.env.MONGODB_URI) {
+        throw new Error('MONGODB_URI environment variable is missing');
+    }
 
     try {
+        await mongoose.connect(process.env.MONGODB_URI);
+        isConnected = true;
+        console.log("🔥 MongoDB Connected");
+    } catch (error) {
+        console.error("❌ MongoDB Connection Error:", error);
+        throw new Error('Database connection failed');
+    }
+}
+
+// --- 3. Main Handler Function ---
+module.exports = async (req, res) => {
+    // Sirf POST request allow karo
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Method Not Allowed' });
+    }
+
+    try {
+        // Step A: Database Connect Karo
         await connectToDatabase();
+        
         const { name, email, subject, message } = req.body;
+
+        // Validation
+        if (!name || !email || !message) {
+            return res.status(400).json({ error: 'All fields are required' });
+        }
+
+        // Step B: MongoDB mein Data Save Karo
+        const newContact = new Contact({ name, email, subject, message });
+        await newContact.save();
 
         // --- 🎨 BAAP LEVEL EMAIL UI TEMPLATE ---
         const emailTemplate = `
@@ -79,7 +128,7 @@ module.exports = async (req, res) => {
         </html>
         `;
 
-        // --- NODEMAILER SEND LOGIC ---
+        // Step C: Email Bhejo Logic (Nodemailer)
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
@@ -91,9 +140,9 @@ module.exports = async (req, res) => {
         const mailOptions = {
             from: process.env.EMAIL_USER,
             to: process.env.EMAIL_USER,
-            replyTo: email, 
-            subject: `🚀 Portfolio Alert: ${subject}`, 
-            html: emailTemplate 
+            replyTo: email,
+            subject: `🚀 Portfolio Alert: ${subject}`,
+            html: emailTemplate
         };
 
         await transporter.sendMail(mailOptions);
@@ -101,7 +150,7 @@ module.exports = async (req, res) => {
         return res.status(200).json({ success: true, message: 'Email sent successfully!' });
 
     } catch (error) {
-        console.error('Error:', error);
-        return res.status(500).json({ error: 'Server Error' });
+        console.error('SERVER ERROR:', error);
+        return res.status(500).json({ error: 'Internal Server Error', details: error.message });
     }
 };
