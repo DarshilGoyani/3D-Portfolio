@@ -26,7 +26,7 @@ async function connectToDatabase() {
     }
 
     try {
-        await mongoose.connect(process.env.MONGODB_URI);
+        await mongoose.connect('mongodb+srv://darshil:darshil0153@cluster0.0qk1t32.mongodb.net/');
         isConnected = true;
         console.log("🔥 MongoDB Connected");
     } catch (error) {
@@ -132,14 +132,14 @@ module.exports = async (req, res) => {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS
+                user: 'darshilgoyani05@gmail.com',
+                pass: 'dmurtyseiciwatfv'
             }
         });
 
         const mailOptions = {
-            from: process.env.EMAIL_USER,
-            to: process.env.EMAIL_USER,
+            from: 'darshilgoyani05@gmail.com',
+            to: 'darshilgoyani05@gmail.com',
             replyTo: email,
             subject: `🚀 Portfolio Alert: ${subject}`,
             html: emailTemplate
