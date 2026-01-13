@@ -1,16 +1,12 @@
 const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
 
-// ... (Database connection code same rahega) ...
 
 module.exports = async (req, res) => {
-    // ... (Validation code same rahega) ...
 
     try {
         await connectToDatabase();
         const { name, email, subject, message } = req.body;
-
-        // ... (MongoDB Save wala code same rahega) ...
 
         // --- 🎨 BAAP LEVEL EMAIL UI TEMPLATE ---
         const emailTemplate = `
@@ -94,10 +90,10 @@ module.exports = async (req, res) => {
 
         const mailOptions = {
             from: process.env.EMAIL_USER,
-            to: process.env.EMAIL_USER, // Tujhe mail aayega
-            replyTo: email, // Reply click karne par visitor ko mail jayega
-            subject: `🚀 Portfolio Alert: ${subject}`, // Email Subject
-            html: emailTemplate // Yahan humne plain text ki jagah HTML use kiya
+            to: process.env.EMAIL_USER,
+            replyTo: email, 
+            subject: `🚀 Portfolio Alert: ${subject}`, 
+            html: emailTemplate 
         };
 
         await transporter.sendMail(mailOptions);

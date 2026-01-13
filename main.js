@@ -384,3 +384,69 @@ counters.forEach(counter => {
         }
     });
 });
+
+
+// --- CONTACT FORM LOGIC (YE MISSING THA) ---
+const contactForm = document.getElementById('contact-form');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault(); // 🛑 Page Reload Roko (Sabse Important)
+
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerText;
+
+        // 1. Loading State (User ko pata chale kuch ho raha hai)
+        submitBtn.innerText = 'Sending Signal...';
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
+
+        // 2. Data Collect Karo
+        const formData = {
+            name: contactForm.name.value,
+            email: contactForm.email.value,
+            subject: contactForm.subject.value,
+            message: contactForm.message.value
+        };
+
+        try {
+            // 3. Backend API ko Call Karo
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                // ✅ Success!
+                submitBtn.innerText = 'Message Sent! 🚀';
+                submitBtn.style.backgroundColor = '#10B981'; // Green Color
+                contactForm.reset(); // Form khali karo
+
+                // 3 second baad button reset
+                setTimeout(() => {
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.style.backgroundColor = ''; 
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                }, 3000);
+            } else {
+                throw new Error(result.error || 'Failed to send');
+            }
+        } catch (error) {
+            // ❌ Error
+            console.error('Error:', error);
+            submitBtn.innerText = 'Failed ❌ Try Again';
+            submitBtn.style.backgroundColor = '#EF4444'; // Red Color
+            
+            setTimeout(() => {
+                submitBtn.innerText = originalBtnText;
+                submitBtn.style.backgroundColor = '';
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+            }, 3000);
+        }
+    });
+}
