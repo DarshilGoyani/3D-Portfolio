@@ -1,6 +1,6 @@
 # 🚀 3D Digital Architect Portfolio
 
-![Project Banner](images/banner.png.png)
+![Project Banner](images/hero%20section.png)
 > **"I don't just write code; I solve problems in 3D space."**
 
 An immersive, high-performance **3D Portfolio Website** crafted to showcase advanced web development skills. This project blends **Three.js** for 3D environments with **GSAP** for industry-leading animations, delivering a seamless and interactive user experience.
