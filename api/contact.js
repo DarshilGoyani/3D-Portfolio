@@ -13,6 +13,8 @@ const contactSchema = new mongoose.Schema({
 // Model create karo (Prevent overwrite during hot reload)
 const Contact = mongoose.models.Contact || mongoose.model('Contact', contactSchema);
 
+
+
 // --- 2. Database Connection Logic (Ye MISSING tha) ---
 let isConnected = false;
 
@@ -52,6 +54,25 @@ module.exports = async (req, res) => {
         if (!name || !email || !message) {
             return res.status(400).json({ error: 'All fields are required' });
         }
+
+        // --- 🛡️ SPAM PROTECTION (Rate Limiting) ---
+        // Check karo ki is email se pichla message kab aaya tha
+        const lastMessage = await Contact.findOne({ email: email }).sort({ date: -1 });
+
+        if (lastMessage) {
+            const currentTime = new Date();
+            const lastTime = new Date(lastMessage.date);
+            const timeDiff = (currentTime - lastTime) / 1000; // Seconds mein difference
+
+            // Agar 10 minute (600 seconds) se kam time hua hai, to error do
+            if (timeDiff < 600) { 
+                const minutesLeft = Math.ceil((600 - timeDiff) / 60);
+                return res.status(429).json({ 
+                    error: `Please wait ${minutesLeft} minutes before sending another message. ⏳` 
+                });
+            }
+        }
+        // ------------------------------------------
 
         // Step B: MongoDB mein Data Save Karo
         const newContact = new Contact({ name, email, subject, message });
