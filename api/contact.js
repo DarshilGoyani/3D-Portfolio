@@ -28,7 +28,7 @@ async function connectToDatabase() {
     }
 
     try {
-        await mongoose.connect('mongodb+srv://darshil:darshil0153@cluster0.0qk1t32.mongodb.net/');
+        await mongoose.connect(process.env.MONGODB_URI);
         isConnected = true;
         console.log("🔥 MongoDB Connected");
     } catch (error) {
@@ -153,8 +153,8 @@ module.exports = async (req, res) => {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'darshilgoyani05@gmail.com',
-                pass: 'dmurtyseiciwatfv'
+                user: process.env.EMAIL_USER, // ✅
+                pass: process.env.EMAIL_PASS  // ✅
             }
         });
 
