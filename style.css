@@ -131,7 +131,7 @@ body.loaded #loader {
 
 .project-card:hover .img-window img {
     /* Smooth Scroll Up */
-    transform: translateY(calc(-100% + 300px)); 
+    transform: translateY(calc(-100% + 360px)); 
 }
 
 /* Content Window (35%) */
