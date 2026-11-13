@@ -50,18 +50,3 @@ Built with a focus on performance, aesthetics, and modern standards.
 | Horizontal Projects | Mobile Menu |
 |:---:|:---:|
 | <img src="images/projects.webp" width="400" alt="Projects"> | <img src="images/mobile view.webp" width="400" alt="Mobile Menu"> |
-
----
-
-
-## 📄 License & Copyright
-
-**© 2026 Darshil Goyani. All Rights Reserved.**
-
-This project is the intellectual property of **Darshil Goyani**. It is intended for **portfolio demonstration purposes only**.
-
-* ⛔ **You may NOT** use this code for your own personal or commercial projects.
-* ⛔ **You may NOT** copy, modify, or distribute the source code.
-* ✅ **You MAY** view the code for educational learning.
-
-If you wish to use any part of this project, please contact me directly for permission.
